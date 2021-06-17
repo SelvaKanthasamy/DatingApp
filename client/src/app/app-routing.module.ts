@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { MessagesComponent } from './messages/messages.component';
+import { MemberListComponent } from './members/member-list/member-list.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -16,8 +17,8 @@ const routes: Routes = [
     runGuardsAndResolvers : 'always',
     canActivate: [AuthGuard],
     children: [
-      {path: 'members', component: MemberDetailComponent,canActivate: [AuthGuard]},
-      {path: 'member/:id', component: MemberDetailComponent},
+      {path: 'members', component: MemberListComponent,canActivate: [AuthGuard]},
+      {path: 'member/:username', component: MemberDetailComponent},
       {path: 'lists', component: ListsComponent},
       {path: 'messages', component: MessagesComponent}      
     ]
